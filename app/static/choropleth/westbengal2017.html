@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_0cd9248ca57b47a6baea4c7c624be99a {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_0cd9248ca57b47a6baea4c7c624be99a" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_0cd9248ca57b47a6baea4c7c624be99a = L.map(
+                                  'map_0cd9248ca57b47a6baea4c7c624be99a',
+                                  {center: [24.77,88.42],
+                                  zoom: 7,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_a0b9dff6f344467e881ea26229eaba1e = L.tileLayer(
+                'https://{s}.tiles.mapbox.com/v3/mapbox.world-bright/{z}/{x}/{y}.png',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_0cd9248ca57b47a6baea4c7c624be99a);
+        
+    
+
+            
+
+                var geo_json_97cbafd00e76408b850b46008c9232a4 = L.geoJson(
+                    {"crs": {"properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}, "type": "name"}, "features": [{"geometry": {"coordinates": [[[88.71, 23.25], [88.65, 22.9], [88.42, 23.0], [88.35, 22.65], [88.35, 22.63], [88.46, 22.51], [88.57, 22.61], [88.83, 22.26], [89.07, 22.12], [88.87, 23.1], [88.98, 23.24], [88.71, 23.25]]], "type": "Polygon"}, "properties": {"COMPANY": "A", "District": "North 24 Parganas", "OBJECTID": 1, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.57, 22.61], [88.83, 22.26], [89.07, 22.12], [89.1, 21.64], [88.85, 21.54], [88.25, 21.56], [88.05, 21.64], [88.04, 21.66], [88.13, 21.96], [88.22, 22.08], [88.18, 22.18], [88.06, 22.22], [88.11, 22.46], [88.27, 22.56], [88.31, 22.46], [88.46, 22.51], [88.57, 22.61]]], "type": "Polygon"}, "properties": {"COMPANY": "B", "District": "South 24 Parganas", "OBJECTID": 2, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.35, 23.24], [88.1, 23.1], [87.76, 23.06], [87.4, 23.43], [87.5, 23.61], [87.91, 23.54], [87.96, 23.82], [88.13, 23.66], [88.37, 23.52], [88.35, 23.24]]], "type": "Polygon"}, "properties": {"COMPANY": "C", "District": "Purba Bardhaman", "OBJECTID": 3, "highlight": {}, "style": {"color": "black", "fillColor": "#fd8d3c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.13, 23.66], [88.24, 23.81], [88.47, 23.85], [88.54, 24.05], [88.7, 24.13], [88.72, 24.31], [88.23, 24.47], [88.13, 24.6], [88.01, 24.65], [87.89, 24.84], [87.82, 24.75], [88.01, 24.26], [87.84, 23.92], [87.96, 23.82], [88.07, 23.72], [88.13, 23.66]]], "type": "Polygon"}, "properties": {"COMPANY": "D", "District": "Murshidabad", "OBJECTID": 4, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[87.88, 22.51], [87.67, 22.49], [87.65, 22.32], [87.72, 22.31], [87.69, 22.11], [87.47, 22.08], [87.42, 21.79], [87.21, 21.84], [87.23, 21.96], [87.13, 22.11], [87.14, 22.27], [87.09, 22.37], [87.17, 22.41], [87.08, 22.42], [87.03, 22.61], [87.09, 22.73], [87.06, 22.85], [87.36, 22.95], [87.52, 22.9], [87.72, 22.78], [87.86, 22.63], [87.88, 22.51]]], "type": "Polygon"}, "properties": {"COMPANY": "E", "District": "Paschim Medinipur", "OBJECTID": 5, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[87.63, 22.89], [87.52, 22.9], [87.72, 22.78], [87.86, 22.63], [87.95, 22.65], [87.98, 22.76], [88.02, 22.69], [88.22, 22.68], [88.35, 22.65], [88.42, 23.0], [88.52, 23.11], [88.45, 23.21], [88.35, 23.24], [88.1, 23.1], [87.76, 23.06], [87.63, 22.89]]], "type": "Polygon"}, "properties": {"COMPANY": "F", "District": "Hooghly", "OBJECTID": 6, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.65, 22.9], [88.42, 23.0], [88.52, 23.11], [88.45, 23.21], [88.35, 23.24], [88.37, 23.52], [88.13, 23.66], [88.24, 23.81], [88.47, 23.85], [88.54, 24.05], [88.7, 24.13], [88.74, 23.9], [88.58, 23.86], [88.59, 23.61], [88.79, 23.47], [88.71, 23.25], [88.65, 22.9]]], "type": "Polygon"}, "properties": {"COMPANY": "G", "District": "Nadia", "OBJECTID": 7, "highlight": {}, "style": {"color": "black", "fillColor": "#fd8d3c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.2, 22.11], [88.11, 22.19], [88.02, 22.22], [87.88, 22.51], [87.67, 22.49], [87.65, 22.32], [87.72, 22.31], [87.69, 22.11], [87.47, 22.08], [87.42, 21.79], [87.44, 21.76], [87.48, 21.61], [87.65, 21.64], [87.79, 21.69], [88.06, 21.91], [88.17, 22.05], [88.2, 22.11]]], "type": "Polygon"}, "properties": {"COMPANY": "H", "District": "Purba Medinipur", "OBJECTID": 8, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.35, 22.63], [88.27, 22.56], [88.11, 22.46], [88.06, 22.22], [88.02, 22.21], [87.88, 22.51], [87.86, 22.63], [87.95, 22.65], [87.98, 22.76], [88.02, 22.69], [88.22, 22.68], [88.35, 22.65], [88.35, 22.63]]], "type": "Polygon"}, "properties": {"COMPANY": "I", "District": "Howrah", "OBJECTID": 9, "highlight": {}, "style": {"color": "black", "fillColor": "#feb24c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.35, 22.63], [88.46, 22.51], [88.31, 22.46], [88.27, 22.56], [88.35, 22.63]]], "type": "Polygon"}, "properties": {"COMPANY": "J", "District": "Kolkata", "OBJECTID": 10, "highlight": {}, "style": {"color": "black", "fillColor": "#feb24c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.01, 24.65], [87.89, 24.84], [87.87, 25.03], [87.77, 25.1], [87.84, 25.27], [87.76, 25.36], [87.78, 25.45], [87.94, 25.54], [88.06, 25.5], [88.11, 25.26], [88.26, 25.3], [88.44, 25.31], [88.44, 25.19], [88.45, 25.05], [88.34, 24.88], [88.26, 24.89], [88.22, 24.95], [88.14, 24.93], [88.17, 24.86], [88.01, 24.65]]], "type": "Polygon"}, "properties": {"COMPANY": "K", "District": "Malda", "OBJECTID": 11, "highlight": {}, "style": {"color": "black", "fillColor": "#e31a1c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.86, 26.96], [88.65, 26.93], [88.49, 26.86], [88.41, 26.62], [88.45, 26.53], [88.7, 26.38], [88.68, 26.28], [88.86, 26.23], [88.81, 26.33], [89.04, 26.57], [89.05, 26.9], [88.91, 26.99], [88.86, 26.96]]], "type": "Polygon"}, "properties": {"COMPANY": "L", "District": "Jalpaiguri", "OBJECTID": 12, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[86.61, 22.81], [86.9, 23.6], [87.4, 23.43], [87.76, 23.06], [87.63, 22.89], [87.52, 22.9], [87.36, 22.95], [87.06, 22.85], [87.09, 22.73], [86.96, 22.63], [86.61, 22.81]]], "type": "Polygon"}, "properties": {"COMPANY": "M", "District": "Bankura", "OBJECTID": 13, "highlight": {}, "style": {"color": "black", "fillColor": "#fd8d3c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[87.13, 23.79], [87.5, 23.61], [87.91, 23.54], [87.96, 23.82], [87.84, 23.92], [88.01, 24.26], [87.89, 24.57], [87.8, 24.58], [87.75, 24.31], [87.5, 24.02], [87.26, 24.03], [87.23, 23.83], [87.15, 23.86], [87.13, 23.79]]], "type": "Polygon"}, "properties": {"COMPANY": "N", "District": "Birbhum", "OBJECTID": 14, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.24, 26.45], [88.34, 26.48], [88.49, 26.46], [88.53, 26.34], [88.09, 25.92], [88.14, 25.78], [88.27, 25.8], [88.45, 25.66], [88.18, 25.36], [88.26, 25.3], [88.11, 25.26], [88.06, 25.5], [88.04, 25.69], [87.84, 25.86], [87.86, 26.05], [88.27, 26.36], [88.32, 26.4], [88.24, 26.45]]], "type": "Polygon"}, "properties": {"COMPANY": "O", "District": "Uttar Dinajpur", "OBJECTID": 15, "highlight": {}, "style": {"color": "black", "fillColor": "#fd8d3c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[86.56, 22.7], [86.61, 22.81], [86.9, 23.6], [86.81, 23.7], [86.35, 23.58], [86.36, 23.47], [86.25, 23.43], [86.1, 23.58], [85.88, 23.47], [85.82, 23.27], [85.92, 23.14], [86.04, 23.14], [86.23, 22.99], [86.54, 22.97], [86.41, 22.76], [86.56, 22.7]]], "type": "Polygon"}, "properties": {"COMPANY": "P", "District": "Purulia", "OBJECTID": 16, "highlight": {}, "style": {"color": "black", "fillColor": "#fd8d3c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.81, 26.33], [89.04, 26.57], [89.46, 26.48], [89.85, 26.42], [89.54, 25.96], [89.15, 26.14], [89.08, 26.34], [88.96, 26.46], [88.91, 26.38], [89.05, 26.25], [88.86, 26.23], [88.81, 26.33]]], "type": "Polygon"}, "properties": {"COMPANY": "Q", "District": "Cooch Behar", "OBJECTID": 17, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.02, 27.22], [88.44, 27.09], [88.49, 26.86], [88.41, 26.62], [88.34, 26.48], [88.24, 26.45], [88.09, 26.53], [88.19, 26.75], [87.98, 27.12], [88.02, 27.22]]], "type": "Polygon"}, "properties": {"COMPANY": "R", "District": "Darjeeling", "OBJECTID": 18, "highlight": {}, "style": {"color": "black", "fillColor": "#fd8d3c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.45, 25.66], [88.18, 25.36], [88.26, 25.3], [88.44, 25.31], [88.44, 25.19], [88.94, 25.17], [89.01, 25.31], [88.84, 25.37], [88.8, 25.52], [88.54, 25.52], [88.49, 25.58], [88.45, 25.66]]], "type": "Polygon"}, "properties": {"COMPANY": "S", "District": "Dakshin Dinajpur", "OBJECTID": 19, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[89.04, 26.57], [89.05, 26.9], [89.44, 26.84], [89.87, 26.7], [89.85, 26.42], [89.46, 26.48], [89.04, 26.57]]], "type": "Polygon"}, "properties": {"COMPANY": "T", "District": "Alipurduar", "OBJECTID": 20, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[88.44, 27.09], [88.6, 27.19], [88.87, 27.11], [88.86, 26.96], [88.65, 26.93], [88.49, 26.86], [88.44, 27.09]]], "type": "Polygon"}, "properties": {"COMPANY": "U", "District": "Kalimpong", "OBJECTID": 21, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[86.81, 23.7], [86.9, 23.6], [87.4, 23.43], [87.5, 23.61], [87.13, 23.79], [86.9, 23.89], [86.81, 23.7]]], "type": "Polygon"}, "properties": {"COMPANY": "V", "District": "Paschim Bardhaman", "OBJECTID": 22, "highlight": {}, "style": {"color": "black", "fillColor": "#fc4e2a", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}, {"geometry": {"coordinates": [[[87.23, 21.96], [87.13, 22.11], [87.14, 22.27], [87.09, 22.37], [87.17, 22.41], [87.08, 22.42], [87.03, 22.61], [87.09, 22.73], [86.96, 22.63], [86.61, 22.81], [86.56, 22.7], [86.88, 22.23], [86.71, 22.16], [87.02, 22.03], [87.0, 21.92], [87.11, 21.87], [87.23, 21.96]]], "type": "Polygon"}, "properties": {"COMPANY": "W", "District": "Jhargram", "OBJECTID": 23, "highlight": {}, "style": {"color": "black", "fillColor": "#feb24c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                    ).addTo(map_0cd9248ca57b47a6baea4c7c624be99a);
+                geo_json_97cbafd00e76408b850b46008c9232a4.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+    var color_map_8cc059d9612846e1b23a1bc148a75f4e = {};
+
+    
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.color = d3.scale.threshold()
+              .domain([0.020000000000000018, 0.22032064128256512, 0.4206412825651302, 0.6209619238476954, 0.8212825651302604, 1.0216032064128255, 1.2219238476953909, 1.4222444889779557, 1.6225651302605208, 1.8228857715430862, 2.023206412825651, 2.2235270541082164, 2.4238476953907817, 2.6241683366733466, 2.8244889779559115, 3.024809619238477, 3.2251302605210417, 3.425450901803607, 3.6257715430861723, 3.826092184368737, 4.0264128256513025, 4.226733466933867, 4.427054108216433, 4.627374749498998, 4.827695390781564, 5.028016032064128, 5.228336673346693, 5.428657314629257, 5.628977955911823, 5.829298597194388, 6.029619238476954, 6.2299398797595185, 6.430260521042083, 6.630581162324649, 6.8309018036072136, 7.03122244488978, 7.231543086172344, 7.43186372745491, 7.632184368737475, 7.832505010020039, 8.032825651302604, 8.23314629258517, 8.433466933867734, 8.633787575150299, 8.834108216432865, 9.03442885771543, 9.234749498997996, 9.43507014028056, 9.635390781563126, 9.83571142284569, 10.036032064128255, 10.236352705410821, 10.436673346693386, 10.636993987975952, 10.837314629258515, 11.037635270541081, 11.237955911823645, 11.43827655310621, 11.638597194388776, 11.83891783567134, 12.039238476953907, 12.239559118236471, 12.439879759519037, 12.640200400801602, 12.840521042084166, 13.040841683366732, 13.241162324649297, 13.441482965931863, 13.641803607214428, 13.842124248496994, 14.042444889779558, 14.242765531062124, 14.443086172344689, 14.643406813627253, 14.84372745490982, 15.044048096192382, 15.244368737474948, 15.444689378757513, 15.645010020040079, 15.845330661322643, 16.045651302605208, 16.245971943887774, 16.44629258517034, 16.646613226452907, 16.84693386773547, 17.047254509018035, 17.247575150300598, 17.447895791583164, 17.64821643286573, 17.848537074148293, 18.04885771543086, 18.249178356713426, 18.449498997995992, 18.649819639278554, 18.85014028056112, 19.050460921843683, 19.250781563126253, 19.451102204408816, 19.651422845691382, 19.851743486973945, 20.05206412825651, 20.252384769539077, 20.452705410821643, 20.653026052104206, 20.853346693386772, 21.05366733466934, 21.253987975951905, 21.454308617234467, 21.65462925851703, 21.854949899799596, 22.055270541082162, 22.25559118236473, 22.45591182364729, 22.656232464929857, 22.85655310621242, 23.05687374749499, 23.257194388777553, 23.45751503006012, 23.65783567134268, 23.85815631262525, 24.058476953907814, 24.25879759519038, 24.459118236472943, 24.65943887775551, 24.859759519038075, 25.06008016032064, 25.260400801603204, 25.46072144288577, 25.661042084168333, 25.8613627254509, 26.061683366733465, 26.262004008016028, 26.462324649298594, 26.66264529058116, 26.862965931863727, 27.06328657314629, 27.263607214428855, 27.463927855711418, 27.664248496993988, 27.86456913827655, 28.064889779559117, 28.26521042084168, 28.46553106212425, 28.665851703406812, 28.866172344689378, 29.06649298597194, 29.266813627254507, 29.467134268537073, 29.66745490981964, 29.867775551102202, 30.068096192384765, 30.26841683366733, 30.468737474949897, 30.669058116232463, 30.869378757515026, 31.069699398797592, 31.27002004008016, 31.470340681362725, 31.670661322645287, 31.870981963927854, 32.07130260521042, 32.271623246492986, 32.47194388777555, 32.67226452905812, 32.872585170340685, 33.072905811623244, 33.27322645290582, 33.473547094188376, 33.67386773547094, 33.87418837675351, 34.074509018036075, 34.27482965931864, 34.4751503006012, 34.675470941883766, 34.87579158316633, 35.0761122244489, 35.276432865731465, 35.47675350701403, 35.67707414829659, 35.877394789579164, 36.07771543086172, 36.27803607214429, 36.478356713426855, 36.67867735470942, 36.87899799599199, 37.07931863727455, 37.27963927855711, 37.479959919839686, 37.680280561122245, 37.88060120240481, 38.08092184368737, 38.281242484969944, 38.48156312625251, 38.68188376753507, 38.882204408817636, 39.082525050100195, 39.28284569138277, 39.483166332665334, 39.68348697394789, 39.88380761523046, 40.084128256513026, 40.28444889779559, 40.48476953907816, 40.68509018036072, 40.88541082164329, 41.08573146292586, 41.286052104208416, 41.48637274549098, 41.68669338677355, 41.887014028056115, 42.08733466933868, 42.28765531062124, 42.48797595190381, 42.68829659318637, 42.88861723446894, 43.088937875751505, 43.289258517034064, 43.48957915831664, 43.689899799599196, 43.89022044088176, 44.09054108216433, 44.290861723446895, 44.49118236472946, 44.69150300601202, 44.891823647294586, 45.09214428857716, 45.29246492985972, 45.492785571142285, 45.693106212424844, 45.89342685370742, 46.093747494989984, 46.29406813627254, 46.49438877755511, 46.69470941883768, 46.89503006012024, 47.09535070140281, 47.29567134268537, 47.49599198396793, 47.696312625250506, 47.896633266533065, 48.09695390781563, 48.29727454909819, 48.497595190380764, 48.69791583166333, 48.89823647294589, 49.098557114228456, 49.29887775551102, 49.49919839679359, 49.699519038076154, 49.89983967935871, 50.10016032064129, 50.300480961923846, 50.50080160320641, 50.70112224448898, 50.901442885771544, 51.10176352705411, 51.30208416833667, 51.502404809619236, 51.7027254509018, 51.90304609218437, 52.103366733466935, 52.3036873747495, 52.50400801603206, 52.70432865731463, 52.90464929859719, 53.10496993987976, 53.305290581162325, 53.50561122244489, 53.70593186372746, 53.906252505010016, 54.10657314629258, 54.306893787575156, 54.507214428857715, 54.70753507014028, 54.90785571142284, 55.108176352705414, 55.30849699398798, 55.50881763527054, 55.709138276553105, 55.909458917835664, 56.10977955911824, 56.310100200400804, 56.51042084168336, 56.71074148296593, 56.9110621242485, 57.11138276553106, 57.31170340681363, 57.51202404809619, 57.71234468937876, 57.912665330661326, 58.112985971943885, 58.31330661322645, 58.51362725450902, 58.713947895791584, 58.91426853707415, 59.11458917835671, 59.31490981963928, 59.51523046092184, 59.71555110220441, 59.915871743486974, 60.11619238476953, 60.31651302605211, 60.516833667334666, 60.71715430861723, 60.9174749498998, 61.117795591182364, 61.31811623246493, 61.51843687374749, 61.718757515030056, 61.91907815631263, 62.11939879759519, 62.319719438877755, 62.52004008016032, 62.72036072144289, 62.92068136272545, 63.12100200400801, 63.32132264529058, 63.52164328657315, 63.72196392785571, 63.92228456913828, 64.12260521042083, 64.32292585170339, 64.52324649298596, 64.72356713426854, 64.9238877755511, 65.12420841683365, 65.32452905811623, 65.52484969939879, 65.72517034068136, 65.92549098196392, 66.12581162324648, 66.32613226452905, 66.52645290581162, 66.72677354709418, 66.92709418837674, 67.12741482965932, 67.32773547094187, 67.52805611222443, 67.728376753507, 67.92869739478957, 68.12901803607214, 68.32933867735471, 68.52965931863727, 68.72997995991983, 68.93030060120239, 69.13062124248496, 69.33094188376752, 69.53126252505008, 69.73158316633265, 69.93190380761523, 70.13222444889779, 70.33254509018036, 70.53286573146292, 70.73318637274548, 70.93350701402805, 71.13382765531061, 71.33414829659317, 71.53446893787574, 71.73478957915832, 71.93511022044088, 72.13543086172344, 72.33575150300601, 72.53607214428857, 72.73639278557113, 72.9367134268537, 73.13703406813626, 73.33735470941883, 73.53767535070139, 73.73799599198396, 73.93831663326652, 74.13863727454908, 74.33895791583166, 74.53927855711422, 74.73959919839677, 74.93991983967936, 75.14024048096192, 75.34056112224448, 75.54088176352704, 75.74120240480961, 75.94152304609217, 76.14184368737473, 76.3421643286573, 76.54248496993988, 76.74280561122244, 76.94312625250501, 77.14344689378757, 77.34376753507013, 77.5440881763527, 77.74440881763526, 77.94472945891782, 78.14505010020038, 78.34537074148297, 78.54569138276553, 78.74601202404808, 78.94633266533066, 79.14665330661322, 79.34697394789578, 79.54729458917835, 79.74761523046091, 79.94793587174348, 80.14825651302604, 80.34857715430861, 80.54889779559117, 80.74921843687373, 80.9495390781563, 81.14985971943887, 81.35018036072142, 81.550501002004, 81.75082164328657, 81.95114228456913, 82.1514629258517, 82.35178356713426, 82.55210420841682, 82.75242484969938, 82.95274549098195, 83.15306613226451, 83.35338677354709, 83.55370741482966, 83.75402805611222, 83.95434869739478, 84.15466933867735, 84.35498997995991, 84.55531062124247, 84.75563126252503, 84.95595190380762, 85.15627254509018, 85.35659318637273, 85.55691382765531, 85.75723446893787, 85.95755511022043, 86.157875751503, 86.35819639278556, 86.55851703406812, 86.7588376753507, 86.95915831663326, 87.15947895791582, 87.35979959919838, 87.56012024048096, 87.76044088176351, 87.96076152304607, 88.16108216432865, 88.36140280561122, 88.56172344689378, 88.76204408817635, 88.96236472945891, 89.16268537074147, 89.36300601202403, 89.5633266533066, 89.76364729458916, 89.96396793587172, 90.16428857715431, 90.36460921843687, 90.56492985971943, 90.765250501002, 90.96557114228456, 91.16589178356712, 91.36621242484968, 91.56653306613225, 91.76685370741482, 91.96717434869738, 92.16749498997996, 92.36781563126252, 92.56813627254508, 92.76845691382765, 92.96877755511021, 93.16909819639277, 93.36941883767535, 93.56973947895791, 93.77006012024047, 93.97038076152303, 94.1707014028056, 94.37102204408816, 94.57134268537072, 94.7716633266533, 94.97198396793586, 95.17230460921843, 95.372625250501, 95.57294589178356, 95.77326653306612, 95.97358717434868, 96.17390781563125, 96.37422845691381, 96.57454909819637, 96.77486973947896, 96.97519038076152, 97.17551102204408, 97.37583166332665, 97.57615230460921, 97.77647294589177, 97.97679358717434, 98.1771142284569, 98.37743486973946, 98.57775551102203, 98.7780761523046, 98.97839679358717, 99.17871743486972, 99.3790380761523, 99.57935871743486, 99.77967935871742, 99.97999999999999])
+              .range(['#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#fed976', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#feb24c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fd8d3c', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#fc4e2a', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#e31a1c', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026', '#b10026']);
+    
+
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.x = d3.scale.linear()
+              .domain([0.020000000000000018, 99.97999999999999])
+              .range([0, 400]);
+
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.legend = L.control({position: 'topright'});
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.legend.addTo(map_0cd9248ca57b47a6baea4c7c624be99a);
+
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.xAxis = d3.svg.axis()
+        .scale(color_map_8cc059d9612846e1b23a1bc148a75f4e.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([0.020000000000000018, 16.68, 33.34, 50.0, 66.66, 83.32, 99.97999999999999]);
+
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.g = color_map_8cc059d9612846e1b23a1bc148a75f4e.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.g.selectAll("rect")
+        .data(color_map_8cc059d9612846e1b23a1bc148a75f4e.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_8cc059d9612846e1b23a1bc148a75f4e.x(color_map_8cc059d9612846e1b23a1bc148a75f4e.color.domain()[i - 1]) : color_map_8cc059d9612846e1b23a1bc148a75f4e.x.range()[0],
+            x1: i < color_map_8cc059d9612846e1b23a1bc148a75f4e.color.domain().length ? color_map_8cc059d9612846e1b23a1bc148a75f4e.x(color_map_8cc059d9612846e1b23a1bc148a75f4e.color.domain()[i]) : color_map_8cc059d9612846e1b23a1bc148a75f4e.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 10)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_8cc059d9612846e1b23a1bc148a75f4e.g.call(color_map_8cc059d9612846e1b23a1bc148a75f4e.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text('');
+    
+            var feature_group_124ce9ee046f43b2b687599c619facab = L.featureGroup(
+                ).addTo(map_0cd9248ca57b47a6baea4c7c624be99a);
+        
+    
+
+            var marker_b3a68a79f3f6414b872091852a9d50a2 = L.marker(
+                [22.685,88.71],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_6c0dc0bd58a145c88e325a553e648a91 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b3a68a79f3f6414b872091852a9d50a2.setIcon(icon_6c0dc0bd58a145c88e325a553e648a91);
+            
+    
+            var popup_7984153d6d4b4fe6b9b596127992679b = L.popup({maxWidth: '300'});
+
+            
+                var html_55a37dcc0f124626b0394f6994de7327 = $('<div id="html_55a37dcc0f124626b0394f6994de7327" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">North 24 Parganas</a></div>')[0];
+                popup_7984153d6d4b4fe6b9b596127992679b.setContent(html_55a37dcc0f124626b0394f6994de7327);
+            
+
+            marker_b3a68a79f3f6414b872091852a9d50a2.bindPopup(popup_7984153d6d4b4fe6b9b596127992679b);
+
+            
+        
+    
+
+            var marker_888d6e4fc6bd484d9d32c8fb7f936c7a = L.marker(
+                [22.075,88.57],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_2565c207822b494b9ffa5d701a17a593 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_888d6e4fc6bd484d9d32c8fb7f936c7a.setIcon(icon_2565c207822b494b9ffa5d701a17a593);
+            
+    
+            var popup_8b456afb9d1349bb8fcb42c76d5e9b2c = L.popup({maxWidth: '300'});
+
+            
+                var html_6965cf94832f49b8be03d460e4947bd5 = $('<div id="html_6965cf94832f49b8be03d460e4947bd5" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">South 24 Parganas</a></div>')[0];
+                popup_8b456afb9d1349bb8fcb42c76d5e9b2c.setContent(html_6965cf94832f49b8be03d460e4947bd5);
+            
+
+            marker_888d6e4fc6bd484d9d32c8fb7f936c7a.bindPopup(popup_8b456afb9d1349bb8fcb42c76d5e9b2c);
+
+            
+        
+    
+
+            var marker_0b19f4a12ef64c44aa08500ab5167a39 = L.marker(
+                [23.44,87.885],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_b71f8340a0a8430eb24e73951581cd18 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0b19f4a12ef64c44aa08500ab5167a39.setIcon(icon_b71f8340a0a8430eb24e73951581cd18);
+            
+    
+            var popup_2f7bcd3ca2204b2d8342898a29cdab4e = L.popup({maxWidth: '300'});
+
+            
+                var html_aa5b37911caf4ad6bd3561a1cf727c9b = $('<div id="html_aa5b37911caf4ad6bd3561a1cf727c9b" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Purba Bardhaman</a></div>')[0];
+                popup_2f7bcd3ca2204b2d8342898a29cdab4e.setContent(html_aa5b37911caf4ad6bd3561a1cf727c9b);
+            
+
+            marker_0b19f4a12ef64c44aa08500ab5167a39.bindPopup(popup_2f7bcd3ca2204b2d8342898a29cdab4e);
+
+            
+        
+    
+
+            var marker_68c5f9c397244f3c943e8e670953a913 = L.marker(
+                [24.25,88.27],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_f716312a13d64e58b5221a3aef51037e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_68c5f9c397244f3c943e8e670953a913.setIcon(icon_f716312a13d64e58b5221a3aef51037e);
+            
+    
+            var popup_622eb728dcb049418f877cfdf4b82087 = L.popup({maxWidth: '300'});
+
+            
+                var html_baa536c16950452eb6db9fbabeca7f88 = $('<div id="html_baa536c16950452eb6db9fbabeca7f88" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Murshidabad</a></div>')[0];
+                popup_622eb728dcb049418f877cfdf4b82087.setContent(html_baa536c16950452eb6db9fbabeca7f88);
+            
+
+            marker_68c5f9c397244f3c943e8e670953a913.bindPopup(popup_622eb728dcb049418f877cfdf4b82087);
+
+            
+        
+    
+
+            var marker_d0c6ef04c5bb4c5697df588594834c83 = L.marker(
+                [22.37,87.455],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_8607dbeb74ac47599e5761838028f8b5 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d0c6ef04c5bb4c5697df588594834c83.setIcon(icon_8607dbeb74ac47599e5761838028f8b5);
+            
+    
+            var popup_e8e9cd995d6f4a1681f2f06be5f95ad9 = L.popup({maxWidth: '300'});
+
+            
+                var html_d4113fb697bc485a835568791ba421f8 = $('<div id="html_d4113fb697bc485a835568791ba421f8" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Paschim Medinipur</a></div>')[0];
+                popup_e8e9cd995d6f4a1681f2f06be5f95ad9.setContent(html_d4113fb697bc485a835568791ba421f8);
+            
+
+            marker_d0c6ef04c5bb4c5697df588594834c83.bindPopup(popup_e8e9cd995d6f4a1681f2f06be5f95ad9);
+
+            
+        
+    
+
+            var marker_7fde4c44003045cc8cd5dc4936c9c36e = L.marker(
+                [22.935,88.02],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_a73fa3931e3a40009e2389c01c09538b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7fde4c44003045cc8cd5dc4936c9c36e.setIcon(icon_a73fa3931e3a40009e2389c01c09538b);
+            
+    
+            var popup_2337316e4f1d48778d39f01d6be889b2 = L.popup({maxWidth: '300'});
+
+            
+                var html_a5bf841cb4d644fe8a154a1c08613341 = $('<div id="html_a5bf841cb4d644fe8a154a1c08613341" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Hooghly</a></div>')[0];
+                popup_2337316e4f1d48778d39f01d6be889b2.setContent(html_a5bf841cb4d644fe8a154a1c08613341);
+            
+
+            marker_7fde4c44003045cc8cd5dc4936c9c36e.bindPopup(popup_2337316e4f1d48778d39f01d6be889b2);
+
+            
+        
+    
+
+            var marker_b4e8faf141054a539bf2be37bf78df93 = L.marker(
+                [23.515,88.46],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_47886b34179049d1a06d52a6b5af8e74 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b4e8faf141054a539bf2be37bf78df93.setIcon(icon_47886b34179049d1a06d52a6b5af8e74);
+            
+    
+            var popup_1d2a959d88d84ccab75ed40fcb0cd41f = L.popup({maxWidth: '300'});
+
+            
+                var html_86da6071cfe6497594aae82a7e1249c1 = $('<div id="html_86da6071cfe6497594aae82a7e1249c1" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Nadia</a></div>')[0];
+                popup_1d2a959d88d84ccab75ed40fcb0cd41f.setContent(html_86da6071cfe6497594aae82a7e1249c1);
+            
+
+            marker_b4e8faf141054a539bf2be37bf78df93.bindPopup(popup_1d2a959d88d84ccab75ed40fcb0cd41f);
+
+            
+        
+    
+
+            var marker_62fa8e27192d40a6b08f7f30661c8708 = L.marker(
+                [22.06,87.81],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_0e60ac7fd413420ea549387d3c8a146c = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_62fa8e27192d40a6b08f7f30661c8708.setIcon(icon_0e60ac7fd413420ea549387d3c8a146c);
+            
+    
+            var popup_87771cca932c4a1295e588609948757e = L.popup({maxWidth: '300'});
+
+            
+                var html_4cce7773d38e4a44b5e3a6904df433f6 = $('<div id="html_4cce7773d38e4a44b5e3a6904df433f6" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Purba Medinipur</a></div>')[0];
+                popup_87771cca932c4a1295e588609948757e.setContent(html_4cce7773d38e4a44b5e3a6904df433f6);
+            
+
+            marker_62fa8e27192d40a6b08f7f30661c8708.bindPopup(popup_87771cca932c4a1295e588609948757e);
+
+            
+        
+    
+
+            var marker_03e52d0e8cb24ea894be875644385cb2 = L.marker(
+                [22.485,88.105],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_2069760d180a46198cece9df1e94470d = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_03e52d0e8cb24ea894be875644385cb2.setIcon(icon_2069760d180a46198cece9df1e94470d);
+            
+    
+            var popup_4ecd0170b7aa416abbe105bd17c108c9 = L.popup({maxWidth: '300'});
+
+            
+                var html_a347389b12b34e32935e70395d9f6080 = $('<div id="html_a347389b12b34e32935e70395d9f6080" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Howrah</a></div>')[0];
+                popup_4ecd0170b7aa416abbe105bd17c108c9.setContent(html_a347389b12b34e32935e70395d9f6080);
+            
+
+            marker_03e52d0e8cb24ea894be875644385cb2.bindPopup(popup_4ecd0170b7aa416abbe105bd17c108c9);
+
+            
+        
+    
+
+            var marker_3ffdc8bd54574f8da840ab4eebb3412c = L.marker(
+                [22.545,88.365],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_8ab9f586ea80472da9bfc77933c55ee9 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_3ffdc8bd54574f8da840ab4eebb3412c.setIcon(icon_8ab9f586ea80472da9bfc77933c55ee9);
+            
+    
+            var popup_168953c97b8c4d1190632b695682a384 = L.popup({maxWidth: '300'});
+
+            
+                var html_b8c1398f3b70496ebe5b0dea1c117fd8 = $('<div id="html_b8c1398f3b70496ebe5b0dea1c117fd8" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Kolkata</a></div>')[0];
+                popup_168953c97b8c4d1190632b695682a384.setContent(html_b8c1398f3b70496ebe5b0dea1c117fd8);
+            
+
+            marker_3ffdc8bd54574f8da840ab4eebb3412c.bindPopup(popup_168953c97b8c4d1190632b695682a384);
+
+            
+        
+    
+
+            var marker_f4ca015e82d64f6db360da0e5ebc2713 = L.marker(
+                [25.095,88.105],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_dbc1425416464842928d9680044498a0 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f4ca015e82d64f6db360da0e5ebc2713.setIcon(icon_dbc1425416464842928d9680044498a0);
+            
+    
+            var popup_5ff0f879643648d398d5219fc8fc6ed7 = L.popup({maxWidth: '300'});
+
+            
+                var html_b4cd121cb07d4324b50924f9ea78977f = $('<div id="html_b4cd121cb07d4324b50924f9ea78977f" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Malda</a></div>')[0];
+                popup_5ff0f879643648d398d5219fc8fc6ed7.setContent(html_b4cd121cb07d4324b50924f9ea78977f);
+            
+
+            marker_f4ca015e82d64f6db360da0e5ebc2713.bindPopup(popup_5ff0f879643648d398d5219fc8fc6ed7);
+
+            
+        
+    
+
+            var marker_b68e8ee82e1249378d136cf3c47207d2 = L.marker(
+                [26.61,88.73],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_bca8db6fa31e4b67bca4c23926a3756d = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b68e8ee82e1249378d136cf3c47207d2.setIcon(icon_bca8db6fa31e4b67bca4c23926a3756d);
+            
+    
+            var popup_e89e3f3748d44a8589596b6f8df6a421 = L.popup({maxWidth: '300'});
+
+            
+                var html_08cfa55de4084d6f8dd5419ac0bc8102 = $('<div id="html_08cfa55de4084d6f8dd5419ac0bc8102" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Jalpaiguri</a></div>')[0];
+                popup_e89e3f3748d44a8589596b6f8df6a421.setContent(html_08cfa55de4084d6f8dd5419ac0bc8102);
+            
+
+            marker_b68e8ee82e1249378d136cf3c47207d2.bindPopup(popup_e89e3f3748d44a8589596b6f8df6a421);
+
+            
+        
+    
+
+            var marker_718df5b135354babaa9f3dee707a5b7c = L.marker(
+                [23.115,87.185],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_e1cc8e57694f42ea80e3ccdbd4b9bf48 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_718df5b135354babaa9f3dee707a5b7c.setIcon(icon_e1cc8e57694f42ea80e3ccdbd4b9bf48);
+            
+    
+            var popup_025dd289272549fea4e1bdaa3ad58d3e = L.popup({maxWidth: '300'});
+
+            
+                var html_d0c264d4a1a947f286435dcb866f1af3 = $('<div id="html_d0c264d4a1a947f286435dcb866f1af3" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Bankura</a></div>')[0];
+                popup_025dd289272549fea4e1bdaa3ad58d3e.setContent(html_d0c264d4a1a947f286435dcb866f1af3);
+            
+
+            marker_718df5b135354babaa9f3dee707a5b7c.bindPopup(popup_025dd289272549fea4e1bdaa3ad58d3e);
+
+            
+        
+    
+
+            var marker_fa212a1cd1184cd28351d34c5ba891eb = L.marker(
+                [24.06,87.57],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_6f02cb9d145c4feebcab9d726c598d67 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_fa212a1cd1184cd28351d34c5ba891eb.setIcon(icon_6f02cb9d145c4feebcab9d726c598d67);
+            
+    
+            var popup_6e4aa3ac8ce8454e88a713198e10e50b = L.popup({maxWidth: '300'});
+
+            
+                var html_111a775742fc43d28458c852d50a0ce9 = $('<div id="html_111a775742fc43d28458c852d50a0ce9" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Birbhum</a></div>')[0];
+                popup_6e4aa3ac8ce8454e88a713198e10e50b.setContent(html_111a775742fc43d28458c852d50a0ce9);
+            
+
+            marker_fa212a1cd1184cd28351d34c5ba891eb.bindPopup(popup_6e4aa3ac8ce8454e88a713198e10e50b);
+
+            
+        
+    
+
+            var marker_d27f0741b41b48b1a440033abb883e35 = L.marker(
+                [25.87,88.185],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_b50cdf60166c48e9935d9a157e4d245a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d27f0741b41b48b1a440033abb883e35.setIcon(icon_b50cdf60166c48e9935d9a157e4d245a);
+            
+    
+            var popup_1e261baaf42e4d1f81585bb074741fbb = L.popup({maxWidth: '300'});
+
+            
+                var html_27ad695e5b884417b3cbc5e08ca63645 = $('<div id="html_27ad695e5b884417b3cbc5e08ca63645" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Uttar Dinajpur</a></div>')[0];
+                popup_1e261baaf42e4d1f81585bb074741fbb.setContent(html_27ad695e5b884417b3cbc5e08ca63645);
+            
+
+            marker_d27f0741b41b48b1a440033abb883e35.bindPopup(popup_1e261baaf42e4d1f81585bb074741fbb);
+
+            
+        
+    
+
+            var marker_8f88f5c1a7be4f899da8895b32f0bd26 = L.marker(
+                [23.2,86.36],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_c66745efd373413ba9d47a2c6df927e7 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_8f88f5c1a7be4f899da8895b32f0bd26.setIcon(icon_c66745efd373413ba9d47a2c6df927e7);
+            
+    
+            var popup_6c952f7a31f4448bb004c8ea27de1230 = L.popup({maxWidth: '300'});
+
+            
+                var html_4232ff6c67b34b0080557e4284bcaba9 = $('<div id="html_4232ff6c67b34b0080557e4284bcaba9" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Purulia</a></div>')[0];
+                popup_6c952f7a31f4448bb004c8ea27de1230.setContent(html_4232ff6c67b34b0080557e4284bcaba9);
+            
+
+            marker_8f88f5c1a7be4f899da8895b32f0bd26.bindPopup(popup_6c952f7a31f4448bb004c8ea27de1230);
+
+            
+        
+    
+
+            var marker_6a81547cbc174609b41bb08571103bcc = L.marker(
+                [26.265,89.33],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_3adc099a0db24544a6d4bfe5acea0e30 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6a81547cbc174609b41bb08571103bcc.setIcon(icon_3adc099a0db24544a6d4bfe5acea0e30);
+            
+    
+            var popup_c626a13dc543414180d8e823a43f96a9 = L.popup({maxWidth: '300'});
+
+            
+                var html_413ef3b80fbc4d788220e42de23a85a9 = $('<div id="html_413ef3b80fbc4d788220e42de23a85a9" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Cooch Behar</a></div>')[0];
+                popup_c626a13dc543414180d8e823a43f96a9.setContent(html_413ef3b80fbc4d788220e42de23a85a9);
+            
+
+            marker_6a81547cbc174609b41bb08571103bcc.bindPopup(popup_c626a13dc543414180d8e823a43f96a9);
+
+            
+        
+    
+
+            var marker_5cff88f9a00a4238a29543a6d9043a30 = L.marker(
+                [26.835,88.235],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_4fe2939724274cd29cec830982f3bd8c = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_5cff88f9a00a4238a29543a6d9043a30.setIcon(icon_4fe2939724274cd29cec830982f3bd8c);
+            
+    
+            var popup_bba2c14d9bcb4f57b43923169ff759e8 = L.popup({maxWidth: '300'});
+
+            
+                var html_b9129a7d218d4ff091ae28a83c00370a = $('<div id="html_b9129a7d218d4ff091ae28a83c00370a" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Darjeeling</a></div>')[0];
+                popup_bba2c14d9bcb4f57b43923169ff759e8.setContent(html_b9129a7d218d4ff091ae28a83c00370a);
+            
+
+            marker_5cff88f9a00a4238a29543a6d9043a30.bindPopup(popup_bba2c14d9bcb4f57b43923169ff759e8);
+
+            
+        
+    
+
+            var marker_f4bac1e61c3e4717806cd54f8e1a3281 = L.marker(
+                [25.415,88.595],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_6d8f440426e14c7c8c1d9cb53ca5961e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f4bac1e61c3e4717806cd54f8e1a3281.setIcon(icon_6d8f440426e14c7c8c1d9cb53ca5961e);
+            
+    
+            var popup_2245edc69b6f461dabf8876f1857be43 = L.popup({maxWidth: '300'});
+
+            
+                var html_81cce92e58db44d18ab8e95de0ae4ba4 = $('<div id="html_81cce92e58db44d18ab8e95de0ae4ba4" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Dakshin Dinajpur</a></div>')[0];
+                popup_2245edc69b6f461dabf8876f1857be43.setContent(html_81cce92e58db44d18ab8e95de0ae4ba4);
+            
+
+            marker_f4bac1e61c3e4717806cd54f8e1a3281.bindPopup(popup_2245edc69b6f461dabf8876f1857be43);
+
+            
+        
+    
+
+            var marker_a688d0103be24f6fa398e263953dbf2a = L.marker(
+                [26.66,89.455],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_a8e78eedbcce40419f1eed4708dd9248 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a688d0103be24f6fa398e263953dbf2a.setIcon(icon_a8e78eedbcce40419f1eed4708dd9248);
+            
+    
+            var popup_32c38b6270364bfc9ae1f92c8898f891 = L.popup({maxWidth: '300'});
+
+            
+                var html_f4a836cc0363487d86ef60710360297c = $('<div id="html_f4a836cc0363487d86ef60710360297c" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Alipurduar</a></div>')[0];
+                popup_32c38b6270364bfc9ae1f92c8898f891.setContent(html_f4a836cc0363487d86ef60710360297c);
+            
+
+            marker_a688d0103be24f6fa398e263953dbf2a.bindPopup(popup_32c38b6270364bfc9ae1f92c8898f891);
+
+            
+        
+    
+
+            var marker_0e617da6f48648f095de2e3b87a922c5 = L.marker(
+                [27.025,88.655],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_e519689be3c54f3ba3d93d1ee53b1d3b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0e617da6f48648f095de2e3b87a922c5.setIcon(icon_e519689be3c54f3ba3d93d1ee53b1d3b);
+            
+    
+            var popup_4c317699e4e64cf79dd088ab0129ba88 = L.popup({maxWidth: '300'});
+
+            
+                var html_4d8c54a108da4af5bb345f25dc12f4bd = $('<div id="html_4d8c54a108da4af5bb345f25dc12f4bd" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Kalimpong</a></div>')[0];
+                popup_4c317699e4e64cf79dd088ab0129ba88.setContent(html_4d8c54a108da4af5bb345f25dc12f4bd);
+            
+
+            marker_0e617da6f48648f095de2e3b87a922c5.bindPopup(popup_4c317699e4e64cf79dd088ab0129ba88);
+
+            
+        
+    
+
+            var marker_16c33230390841b79f2aa5c17e2ab2d5 = L.marker(
+                [23.66,87.155],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_bbaad0f6380b4a2381edbb8fc5a50463 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_16c33230390841b79f2aa5c17e2ab2d5.setIcon(icon_bbaad0f6380b4a2381edbb8fc5a50463);
+            
+    
+            var popup_d6799bc7a6a84d04a41f2c0ee80a7741 = L.popup({maxWidth: '300'});
+
+            
+                var html_8227b80a77f44c73890f42339ff9c9fb = $('<div id="html_8227b80a77f44c73890f42339ff9c9fb" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Paschim Bardhaman</a></div>')[0];
+                popup_d6799bc7a6a84d04a41f2c0ee80a7741.setContent(html_8227b80a77f44c73890f42339ff9c9fb);
+            
+
+            marker_16c33230390841b79f2aa5c17e2ab2d5.bindPopup(popup_d6799bc7a6a84d04a41f2c0ee80a7741);
+
+            
+        
+    
+
+            var marker_3f234ef27b8d4a0d9daa204febd3a992 = L.marker(
+                [22.34,86.895],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(feature_group_124ce9ee046f43b2b687599c619facab);
+            
+    
+
+                var icon_7a5f0a89e0274cc6a8f1ec550de34c5e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_3f234ef27b8d4a0d9daa204febd3a992.setIcon(icon_7a5f0a89e0274cc6a8f1ec550de34c5e);
+            
+    
+            var popup_146107e91ead4595a3f824c09378e5ab = L.popup({maxWidth: '300'});
+
+            
+                var html_ee4413382ef74c2b81b54cf69f9a8676 = $('<div id="html_ee4413382ef74c2b81b54cf69f9a8676" style="width: 100.0%; height: 100.0%;"><a href="http://www.fluxionbits.com">Jhargram</a></div>')[0];
+                popup_146107e91ead4595a3f824c09378e5ab.setContent(html_ee4413382ef74c2b81b54cf69f9a8676);
+            
+
+            marker_3f234ef27b8d4a0d9daa204febd3a992.bindPopup(popup_146107e91ead4595a3f824c09378e5ab);
+
+            
+        
+</script>

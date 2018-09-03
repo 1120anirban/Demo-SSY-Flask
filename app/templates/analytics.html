@@ -1,0 +1,33 @@
+{% extends "layoutdetails.html" %}
+{% block content %}
+    <div class="form-group">
+        <div class="form-group">
+            <div class="slidecontainer">
+                <input type="range" min="2016" max="2020" value="2018" class="slider" id="myRange" />
+                <p><b>Timeline: <span id="Timeline"></span></b></p>
+            </div>      
+            <script type="text/javascript">
+                var slider = document.getElementById("myRange");
+                var output = document.getElementById("Timeline");
+                var path = "/static/choropleth/westbengal2017.html";
+                output.innerHTML = slider.value;  
+                    slider.oninput = function() {
+                    output.innerHTML =  this.value;
+                    if (slider.value == '2016'){
+                        document.getElementById('analyticsMap').setAttribute('src',"/static/choropleth/westbengal2016.html")
+                    }
+                    else if (slider.value == '2017'){
+                        document.getElementById('analyticsMap').setAttribute('src',"/static/choropleth/westbengal2017.html")                        
+                    }
+                    else{
+                        document.getElementById('analyticsMap').setAttribute('src',"/static/choropleth/westbengal2018.html")                        
+                    }
+                }
+            </script>
+
+            <iframe id="analyticsMap" src="/static/choropleth/westbengal2018.html"
+                        frameborder="0" allowfullscreen width="100%" height="550"
+                        style="box-shadow: 0 0 16px #0000ff; margin: 10px;"></iframe>
+        </div>
+    </div>
+{% endblock content %}
