@@ -12,7 +12,14 @@
                 var path = "/static/choropleth/westbengal2017.html";
                 output.innerHTML = slider.value;  
                     slider.oninput = function() {
-                    output.innerHTML =  this.value;
+                        if (this.value == 2016)
+                        {
+                            output.innerHTML =  'Early 2017';
+                        }
+                        else
+                        {
+                            output.innerHTML =  this.value;
+                        }
                     if (slider.value == '2016'){
                         document.getElementById('analyticsMap').setAttribute('src',"/static/choropleth/westbengal2016.html")
                     }
