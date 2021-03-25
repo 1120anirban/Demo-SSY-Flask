@@ -47,7 +47,7 @@ pytest==3.3.2
 python-dateutil==2.6.1
 pytz==2017.3
 PyWavelets==0.5.2
-PyYAML==3.12
+PyYAML==5.4
 pyzmq==16.0.3
 scikit-image==0.13.1
 scikit-learn==0.19.1
