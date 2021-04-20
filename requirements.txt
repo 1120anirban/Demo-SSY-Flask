@@ -32,7 +32,7 @@ pandas==0.22.0
 path.py==10.5
 pathlib2==2.3.0
 Pillow==5.0.0
-py==1.5.2
+py==1.10.0
 pycodestyle==2.3.1
 pycosat==0.6.3
 pycparser==2.18
