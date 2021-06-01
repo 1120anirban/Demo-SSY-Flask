@@ -60,7 +60,7 @@ sympy==1.1.1
 tables==3.4.2
 testpath==0.3.1
 unicodecsv==0.14.1
-urllib3==1.22
+urllib3==1.26.5
 virtualenv==16.0.0
 Werkzeug==0.14.1
 WTForms==2.2.1
